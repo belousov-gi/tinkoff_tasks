@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace task_5
 {
@@ -7,8 +6,6 @@ namespace task_5
     {
         public static void Main()
         {
-            while (true)
-            {
                 long[] inputData = Array.ConvertAll(Console.ReadLine().Split(' '), input => Int64.Parse(input));
                 long firstNumber = inputData[0];
                 long secondNumber = inputData[1];
@@ -32,10 +29,8 @@ namespace task_5
                         // we add 1 for including second bound in calculating
                         possibleTests += 9 - positionOfMaxDigitFirstValue + 1;
 
-                        //for next rank 
-                        positionOfMaxDigitFirstValue = 1;
-                        
                         //next rank starts from {1 * 10^rank} value therefore position of max digit equals 1
+                        positionOfMaxDigitFirstValue = 1;
                         currentRank++;
                     }
                     else
@@ -48,7 +43,6 @@ namespace task_5
                 }
 
                 Console.WriteLine(possibleTests);
-            }
         }
 
         public static int GetRankOfValue(long inputValue)
